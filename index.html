@@ -3,154 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <title>Bootstrap ukázka</title>
+    <title>Převodník teplot</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: black;
+        }
+        label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: #555;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+        input:focus, select:focus, button:hover {
+            border-color: black;
+            outline: none;
+        }
+        button {
+            background-color: black;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:active {
+            transform: scale(0.98);
+        }
+        .result {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #28a745;
+        }
+        .result.error {
+            color: #dc3545;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">Navbar</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Dropdown
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                  </li>
-                </ul>
-                <form class="d-flex" role="search">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-              </div>
-            </div>
-          </nav>
-          <div class="display-4 mt-5 mb-2">Tabulka</div>
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </table>
-
-        <div class="display-4 mt-5 mb-2">Carousel</div>
-          <div id="carouselExample" class="carousel slide">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="../projekt_pva/img/i20nrally1.png" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="../projekt_pva/img/yarisrally1kalle.jpg" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="../projekt_pva/img/pumarally1.jpg" class="d-block w-100" alt="...">
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
-          <div class="display-4 mt-5 mb-2">Autoplay</div>
-    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-          </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="../projekt_pva/img/c4wrc.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Citroen C4 WRC</h5>
-                <p>Francouzský automobil.</p>
-              </div>
-          </div>
-          <div class="carousel-item">
-            <img src="../projekt_pva/img/focus2001.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Ford Focus WRC 2001</h5>
-                <p>Legendární auto od Fordu.</p>
-              </div>
-          </div>
-          <div class="carousel-item">
-            <img src="../projekt_pva/img/deltaS4.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Lancia Delta S4</h5>
-                <p>Z 0 na 60 za 2.3.</p>
-              </div>
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-      
-
-
-
-
-
+        <h1>Převodník teplot</h1>
+        <label for="temperature">Zadej teplotu:</label>
+        <input type="number" id="temperature" placeholder="Např. 25">
+        <label for="conversion">Vyber převod:</label>
+        <select id="conversion">
+            <option value="cToF">Z °C na °F</option>
+            <option value="fToC">Z °F na °C</option>
+        </select>
+        <button onclick="convertTemperature()">Převeď</button>
+        <div class="result" id="result"></div>
     </div>
 
-    
+    <script>
+        function convertTemperature() {
+            const temperature = parseFloat(document.getElementById('temperature').value);
+            const conversionType = document.getElementById('conversion').value;
 
+            const resultElement = document.getElementById('result');
 
+            if (isNaN(temperature)) {
+                resultElement.textContent = "Prosím zadej platné číslo.";
+                resultElement.className = "result error";
+                return;
+            }
 
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+            let result;
+            if (conversionType === "cToF") {
+                // Převod z °C na °F
+                result = (temperature * 9/5) + 32;
+                resultElement.textContent = `${temperature} °C je ${result.toFixed(2)} °F.`;
+                resultElement.className = "result";
+            } else if (conversionType === "fToC") {
+                // Převod z °F na °C
+                result = (temperature - 32) * 5/9;
+                resultElement.textContent = `${temperature} °F je ${result.toFixed(2)} °C.`;
+                resultElement.className = "result";
+            }
+        }
+    </script>
 </body>
 </html>
